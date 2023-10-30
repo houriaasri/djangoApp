@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="booking-container">
+    <h1>Make a reservation</h1>
+
+    <form method="post" action="#" class="booking-form" id="yourFormId">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" name="first_name" id="name" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="reservation_date">Reservation date:</label>
+            <input type="date" name="reservation_date" id="reservation_date" required>
+        </div>
+
+        <div class="form-group">
+            <label for="reservation_slot">Select time:</label>
+    <select name="reservation_slot" id="reservation_time">
+        <option value="10 AM">10 AM</option>
+        <option value="11 AM">11 AM</option>
+        <option value="12 PM">12 PM</option>
+        <option value="12 PM">12 PM</option>
+        <option value="12 PM">01 AM</option>
+        <option value="12 PM">02 AM</option>
+        <option value="12 PM">03 AM</option>
+        <option value="12 PM">04 AM</option>
+    </select>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Reserve">
+        </div>
+    </form>
+
+    <div class="bookings-list">
+        <h2>Bookings For {{ current_date }}</h2>
+        <div id="bookingsContainer">
+            {% for booking in bookings %}
+                <p>{{ booking.fields.first_name }} - {{ booking.fields.reservation_slot }}</p>
+            {% endfor %}
+        </div>
+    </div>
+    
+    
+</div>
+{% endblock %}

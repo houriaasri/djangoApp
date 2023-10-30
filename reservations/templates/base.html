@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Little Lemon</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="{% static 'main.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+</head>
+<body>
+    <header>
+        <img src="{% static 'images/Asset 14@4x.png' %}" alt="logo" title="log of asset"/>
+        <nav>
+            <a href="{% url 'reservation_form' %}">Home</a>
+            <a href="{#}">About</a>
+            <a href="{#}">Menu</a>
+            <a href="#">Book</a>
+            <a href="{% url 'booking-list' %}">Reservations</a>
+        </nav>
+    </header>
+    
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>Copyright Little Lemon</p>
+    </footer>
+</body>
+</html>

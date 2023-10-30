@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>All Reservations</h1>
+
+{% for booking in bookings %}
+<p>{{ booking.first_name }} - {{ booking.reservation_date }} - {{ booking.reservation_slot }}</p>
+{% endfor %}
+{% endblock %}
